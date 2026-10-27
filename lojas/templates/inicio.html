@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Lojas de demonstração</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 40px; color: #222; }
+  li { margin: 8px 0; font-size: 18px; }
+</style>
+</head>
+<body>
+<h1>Lojas de demonstração</h1>
+<p>Fornecedores de mentira para o robô de monitoramento de preços. Rodada de preços nº {{ rodada }}.</p>
+<ul>
+  {% for chave, loja in lojas.items() %}
+  <li><a href="/{{ chave }}">{{ loja.nome }}</a></li>
+  {% endfor %}
+</ul>
+</body>
+</html>

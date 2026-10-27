@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Papelaria Central</title>
+<style>
+  body { font-family: Georgia, serif; margin: 0; background: #f0fdf4; color: #14532d; }
+  header { background: #166534; color: #fff; padding: 16px 32px; font-size: 22px; }
+  ul { list-style: none; max-width: 720px; margin: 24px auto; padding: 0; }
+  li { background: #fff; margin-bottom: 10px; padding: 14px 18px; border-left: 6px solid #22c55e; }
+  .nome { font-size: 18px; }
+  .ean { font-size: 12px; color: #6b7280; }
+  .valor { float: right; font-size: 20px; }
+  .esgotado { float: right; background: #fee2e2; color: #991b1b; padding: 2px 8px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<header>Papelaria Central · Ofertas para empresas</header>
+<ul id="lista">
+  {% for p in produtos %}
+  <li class="item" data-codigo="{{ p.codigo }}">
+    {% if p.disponivel %}
+    <span class="valor">{{ p.preco | reais }} <small>à vista</small></span>
+    {% else %}
+    <span class="esgotado">Esgotado</span>
+    {% endif %}
+    <div class="nome">{{ p.descricao }}</div>
+    <div class="ean">Cód. barras {{ p.ean }}</div>
+  </li>
+  {% endfor %}
+</ul>
+</body>
+</html>
